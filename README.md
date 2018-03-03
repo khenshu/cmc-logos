@@ -1,4 +1,4 @@
-# cmc_logos
+# Coinmarketcap.com logos
 
 Coinmarketcap.com has recently changed the filenames of the cryptocurrency logos.
 
