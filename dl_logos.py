@@ -22,7 +22,7 @@ def get_logo_ids():
     return logo_dict
 
 def download_logos(logo_dict, img_size):
-    base_img_url = "https://files.coinmarketcap.com/static/img/coins/"
+    base_img_url = "https://s2.coinmarketcap.com/static/img/coins/"
     #create a folder to save the files
     if not os.path.exists(img_size):
         os.makedirs(img_size)
@@ -32,9 +32,14 @@ def download_logos(logo_dict, img_size):
         img_url = base_img_url+img_size+"/"+logo_id+".png"
         file_path = img_size+"/"+coin_id+".png"
         #download and save
-        urllib.request.urlretrieve(img_url, file_path)
-        print(img_url+" --> "+file_path)
+        try:
+            urllib.request.urlretrieve(img_url, file_path)
+            print(img_url+" --> "+file_path)
+        except Exception as e:
+            print(e)
+            continue
 
 
-logo_dict = get_logo_ids()
-download_logos(logo_dict, IMG_SIZE)
+if __name__ == "__main__":
+    logo_dict = get_logo_ids()
+    download_logos(logo_dict, IMG_SIZE)
