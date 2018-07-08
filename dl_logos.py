@@ -16,7 +16,7 @@ def get_logo_ids(type):
     for trow in trows:
         coin_id = trow.get("id").split("-", 1)[-1]
         #the logo_div tag contains the logo id
-        logo_div = trow.find("div", class_="currency-logo-sprite")
+        logo_div = trow.find("div", class_="logo-sprite")
         match = re.search("s-s-([0-9]*)", str(logo_div))
         logo_id = match.group(1)
         logo_dict[coin_id] = logo_id
